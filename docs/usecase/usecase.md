@@ -1,7 +1,5 @@
+Here is a Domain Model:
 ```mermaid
-@startuml NiziProject
-skinparam PackageStyle rectangle
-
 package 候補者集約 {
     object 候補者 {
         候補者ID
