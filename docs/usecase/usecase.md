@@ -1,4 +1,7 @@
-```mermaid
+```uml
+@startuml NiziProject
+skinparam PackageStyle rectangle
+
 package 候補者集約 {
     object 候補者 {
         候補者ID
@@ -73,5 +76,4 @@ end note
 テスト "1..4" -down-> "1..4" キューブ
 
 @enduml
-
 ```
