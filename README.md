@@ -1,5 +1,10 @@
 # go-with-clean-architecture
 
+## init
+```
+cd go
+go mod tidy
+```
 ## serve
 ```
 make serve
