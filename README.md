@@ -1,5 +1,9 @@
 # go-with-clean-architecture
 
+## serve
+```
+make serve
+```
 ## 注意
 ### ドメインモデル図やユースケース図の確認は下記の拡張機能を導入してください
 - [Pegmatite](https://chromewebstore.google.com/detail/pegmatite/jegkfbnfbfnohncpcfcimepibmhlkldo)
