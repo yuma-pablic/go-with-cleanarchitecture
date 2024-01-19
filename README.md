@@ -2,7 +2,7 @@
 
 ## 注意
 ### ドメインモデル図やユースケース図の確認は下記の拡張機能を導入してください
-- [Pegmatite]https://chromewebstore.google.com/detail/pegmatite/jegkfbnfbfnohncpcfcimepibmhlkldo
+- [Pegmatite](https://chromewebstore.google.com/detail/pegmatite/jegkfbnfbfnohncpcfcimepibmhlkldo)
 
 ## 参考書籍
 - [Go言語で構築するクリーンアーキテクチャ設計](https://techbookfest.org/product/9a3U54LBdKDE30ewPS6Ugn?productVariantID=itEzQN5gKZX8gXMmLTEXAB)
