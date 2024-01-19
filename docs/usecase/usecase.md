@@ -1,4 +1,4 @@
-```uml
+```mermaid
 package 候補者集約 {
     object 候補者 {
         候補者ID
