@@ -3,6 +3,7 @@ module profile
 go 1.21.5
 
 require (
+	github.com/google/uuid v1.5.0
 	github.com/google/wire v0.5.0
 	github.com/stretchr/testify v1.8.4
 	go.uber.org/mock v0.4.0

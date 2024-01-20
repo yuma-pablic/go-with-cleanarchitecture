@@ -20,7 +20,7 @@ func NewCreateUserUseCase(ur userDomain.UserRepository) *CreateUserUseCase {
 }
 
 func (uc *CreateUserUseCase) Run(ctx context.Context, input *CreateUserUseCaseInputDTO) error {
-	user := userDomain.NewUser(input.ID, input.Email, input.Type)
+	user := userDomain.NewUser(input.Email, input.Type)
 	err := uc.ur.Create(user)
 	if err != nil {
 		return err
