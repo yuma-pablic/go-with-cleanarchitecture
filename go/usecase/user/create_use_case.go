@@ -10,7 +10,6 @@ type CreateUserUseCase struct {
 }
 
 type CreateUserUseCaseInputDTO struct {
-	ID    string
 	Email string
 	Type  string
 }

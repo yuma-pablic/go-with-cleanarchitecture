@@ -12,6 +12,7 @@ func NewUser(email string, userType string) *User {
 	return newUser(uuid.New().String(), email, userType)
 }
 
+// プライマリーコンストラクタ
 func newUser(id string, email string, userType string) *User {
 	return &User{
 		ID:    id,
