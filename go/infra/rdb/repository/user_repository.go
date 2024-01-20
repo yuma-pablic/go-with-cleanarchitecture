@@ -17,3 +17,7 @@ func (ur *userRepository) FindById(id string) (*userDomain.User, error) {
 		Type:  "employee",
 	}, nil
 }
+
+func (ur *userRepository) Create(*userDomain.User) error {
+	return nil
+}
