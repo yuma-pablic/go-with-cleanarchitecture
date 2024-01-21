@@ -4,4 +4,5 @@ package user
 type UserRepository interface {
 	FindById(id string) (*User, error)
 	Create(user *User) error
+	Update(user *User) error
 }

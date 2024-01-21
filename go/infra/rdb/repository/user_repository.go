@@ -21,3 +21,7 @@ func (ur *userRepository) FindById(id string) (*userDomain.User, error) {
 func (ur *userRepository) Create(*userDomain.User) error {
 	return nil
 }
+
+func (ur *userRepository) Update(*userDomain.User) error {
+	return nil
+}

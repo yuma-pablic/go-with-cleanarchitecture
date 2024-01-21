@@ -8,7 +8,7 @@ import (
 	user "profile/domain/user"
 	reflect "reflect"
 
-	gomock "go.uber.org/mock/gomock"
+	gomock"go.uber.org/mock/gomock"
 )
 
 // MockUserRepository is a mock of UserRepository interface.
@@ -61,4 +61,18 @@ func (m *MockUserRepository) FindById(id string) (*user.User, error) {
 func (mr *MockUserRepositoryMockRecorder) FindById(id interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "FindById", reflect.TypeOf((*MockUserRepository)(nil).FindById), id)
+}
+
+// Update mocks base method.
+func (m *MockUserRepository) Update(user *user.User) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "Update", user)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// Update indicates an expected call of Update.
+func (mr *MockUserRepositoryMockRecorder) Update(user interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Update", reflect.TypeOf((*MockUserRepository)(nil).Update), user)
 }

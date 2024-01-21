@@ -8,7 +8,7 @@ func NewCompanyRepository() companyDomain.CompanyRepository {
 	return &companyRepository{}
 }
 
-func (cr *companyRepository) FindById(id string) (*companyDomain.Company, error) {
+func (cr *companyRepository) Find() (*companyDomain.Company, error) {
 	return &companyDomain.Company{
 		ID:                "1234567810",
 		Name:              "Example Company",
