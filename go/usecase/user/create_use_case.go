@@ -6,7 +6,8 @@ import (
 )
 
 type CreateUserUseCase struct {
-	ur userDomain.UserRepository
+	ur  userDomain.UserRepository
+	uds userDomain.UserDomainService
 }
 
 type CreateUserUseCaseInputDTO struct {
@@ -14,13 +15,16 @@ type CreateUserUseCaseInputDTO struct {
 	Type  string
 }
 
-func NewCreateUserUseCase(ur userDomain.UserRepository) *CreateUserUseCase {
-	return &CreateUserUseCase{ur}
+func NewCreateUserUseCase(ur userDomain.UserRepository, uds userDomain.UserDomainService) *CreateUserUseCase {
+	return &CreateUserUseCase{ur, uds}
 }
 
 func (uc *CreateUserUseCase) Run(ctx context.Context, input *CreateUserUseCaseInputDTO) error {
-	user := userDomain.NewUser(input.Email, input.Type)
-	err := uc.ur.Create(user)
+	user, err := uc.uds.NewUser(input.Email, input.Type)
+	if err != nil {
+		return err
+	}
+	err = uc.ur.Create(user)
 	if err != nil {
 		return err
 	}

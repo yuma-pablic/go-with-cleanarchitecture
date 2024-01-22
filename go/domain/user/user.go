@@ -20,8 +20,18 @@ type UserDomainService struct {
 func NewUserDomainService(ur UserRepository, cr company.CompanyRepository) *UserDomainService {
 	return &UserDomainService{ur, cr}
 }
-func NewUser(email string, userType string) *User {
-	return newUser(uuid.New().String(), email, userType)
+func (uds *UserDomainService) NewUser(email string, userType string) (*User, error) {
+	emailDomain := email
+	company, err := uds.cr.Find()
+	if err != nil {
+		return nil, errors.New("company not found")
+	}
+	if emailDomain == company.Name {
+		userType = "company"
+	} else {
+		userType = "general"
+	}
+	return newUser(uuid.New().String(), email, userType), nil
 }
 
 func (uds *UserDomainService) ReNewUser(id string, email string, userType string) (*User, error) {
