@@ -1,12 +1,14 @@
 package user
 
 import (
+	"profile/domain/company"
 	userDomain "profile/domain/user"
 )
 
 type UpdateUserUseCase struct {
 	ur userDomain.UserRepository
 	us userDomain.UserDomainService
+	cr company.CompanyRepository
 }
 
 type UpdateUserUseCaseInputDTO struct {
@@ -15,8 +17,8 @@ type UpdateUserUseCaseInputDTO struct {
 	Type  string
 }
 
-func NewUpdateUserUseCase(ur userDomain.UserRepository, us userDomain.UserDomainService) *UpdateUserUseCase {
-	return &UpdateUserUseCase{ur, us}
+func NewUpdateUserUseCase(ur userDomain.UserRepository, us userDomain.UserDomainService, cr company.CompanyRepository) *UpdateUserUseCase {
+	return &UpdateUserUseCase{ur, us, cr}
 }
 
 func (uc *UpdateUserUseCase) Run(input *UpdateUserUseCaseInputDTO) error {
@@ -28,7 +30,14 @@ func (uc *UpdateUserUseCase) Run(input *UpdateUserUseCaseInputDTO) error {
 	if err != nil {
 		return err
 	}
+	res, err := uc.cr.Find()
+	if err != nil {
+		return err
+	}
+	company := company.ReNewCompany(res.ID, res.Name, res.NumberOfEmployees)
+
 	err = uc.ur.Update(user)
+	err = uc.cr.Update(company)
 	if err != nil {
 		return err
 	}

@@ -15,3 +15,7 @@ func (cr *companyRepository) Find() (*companyDomain.Company, error) {
 		NumberOfEmployees: 100,
 	}, nil
 }
+
+func (cr *companyRepository) Update(*companyDomain.Company) error {
+	return nil
+}
