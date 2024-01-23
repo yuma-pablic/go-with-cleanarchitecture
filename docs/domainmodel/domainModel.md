@@ -20,7 +20,6 @@ end note
 
 package 会社集約 {
     object 会社 {
-        会社ID
         名前
         従業員数
     }
